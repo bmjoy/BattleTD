@@ -34,9 +34,9 @@ deploy:
 - provider: releases
   api_key: $GITHUB_TOKEN
   file: 
-  - ./Build/windows.zip
-  - ./Build/linux.tar.gz
-  - ./Build/osx.dmg
+  - Build/windows.zip
+  - Build/linux.tar.gz
+  - Build/osx.dmg
   name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
   skip_cleanup: true
   on:
@@ -45,7 +45,7 @@ deploy:
 - provider: pages
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
-  local-dir: ./Build/webgl/
+  local-dir: Build/webgl
   keep-history: true
   on:
     branch:
