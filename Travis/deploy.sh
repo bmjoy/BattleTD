@@ -17,7 +17,8 @@ SSH_REPO=${REPO/https:\/\/github.com\//git@github.com:}
 SHA=`git rev-parse --verify HEAD`
 
 # Clone the existing gh-pages for this repo into out/
-# Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deply)
+# Create a new empty branch if gh-pages doesn't exist yet (should only happen on first deploy)
+rm -rf .gitignore
 git clone $REPO out
 cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
@@ -27,11 +28,13 @@ cd ..
 rm -rf out/**/* || exit 0
 
 # Copy webgl to directory 
-
-cp -a Build/webgl/. out/
+ls 
+cp -v -R Build/webgl/* out/
+cp -R Build/webgl/* out/
 
 # Now let's go have some fun with the cloned repo
 cd out
+ls
 git config user.name "Travis CI"
 git config user.email "travis.ci@bot.com"
 

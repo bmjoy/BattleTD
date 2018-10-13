@@ -33,14 +33,6 @@ after_success:
 - ./Travis/deploy.sh
 
 deploy:
-#- provider: pages
-#  skip-cleanup: true
-#  github-token: $GITHUB_TOKEN
-#  local-dir: Build/webgl
-#  on:
-#    branch:
-#      - master    
-#      - stable
       
 - provider: releases
   api_key: $GITHUB_TOKEN
@@ -51,5 +43,15 @@ deploy:
   name: $TRAVIS_BRANCH $(date +'%Y.%m.%d %H:%M')
   skip_cleanup: true
   on:
-    all_branches: true
+    branch:
+      - alfa
+    #all_branches: true
 
+- provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: Build/webgl
+  on:
+    branch:
+      - master    
+      - stable
