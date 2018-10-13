@@ -23,13 +23,13 @@ cd out
 git checkout $TARGET_BRANCH || git checkout --orphan $TARGET_BRANCH
 cd ..
 
-# Copy webgl to directory 
-
-cp -a Build/webgl/. out/
-
 # Clean out existing contents
 rm -rf out/**/* || exit 0
 
+
+# Copy webgl to directory 
+
+cp -a Build/webgl/. out/
 
 # Now let's go have some fun with the cloned repo
 cd out
