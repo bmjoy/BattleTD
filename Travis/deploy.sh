@@ -26,7 +26,6 @@ cd ..
 # Clean out existing contents
 rm -rf out/**/* || exit 0
 
-
 # Copy webgl to directory 
 
 cp -a Build/webgl/. out/
