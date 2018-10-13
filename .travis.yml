@@ -46,7 +46,6 @@ deploy:
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   local-dir: Build/webgl
-  keep-history: true
   on:
     branch:
       - master    
