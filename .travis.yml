@@ -20,6 +20,7 @@ before_install:
 - chmod a+x ./Travis/install.sh
 - chmod a+x ./Travis/build.sh
 - chmod a+x ./Travis/tag.sh
+- chmod a+x ./Travis/deploy.sh
 
 install:
 - ./Travis/install.sh
@@ -32,6 +33,15 @@ after_success:
 - ./Travis/deploy.sh
 
 deploy:
+- provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local-dir: Build/webgl
+  on:
+    branch:
+      - master    
+      - stable
+      
 - provider: releases
   api_key: $GITHUB_TOKEN
   file: 
@@ -43,13 +53,3 @@ deploy:
   on:
     all_branches: true
 
-- provider: pages
-  edge:
-    branch: v1.8.47
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  local-dir: Build/webgl
-  on:
-    branch:
-      - master    
-      - stable
