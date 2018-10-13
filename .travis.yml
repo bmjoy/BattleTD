@@ -31,8 +31,6 @@ after_success:
 - ./Travis/tag.sh
 
 deploy:
-  edge:
-    branch: v1.8.47
 - provider: releases
   api_key: $GITHUB_TOKEN
   file: 
@@ -45,6 +43,8 @@ deploy:
     all_branches: true
 
 - provider: pages
+  edge:
+    branch: v1.8.47
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
   local-dir: Build/webgl
