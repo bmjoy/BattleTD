@@ -29,6 +29,7 @@ script:
 
 after_success:
 - ./Travis/tag.sh
+- ./deploy.sh
 
 deploy:
 - provider: releases
