@@ -43,5 +43,6 @@ git config user.email "travis.ci@bot.com"
 git add -A .
 git commit -m "Deploy to GitHub Pages: ${SHA}"
 
-git remote add gitlab https://FriendlyUser:$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG 
-git push gitlab HEAD:$TARGET_BRANCH
+git remote rm origin
+git remote add origin https://FriendlyUser:$GITHUB_TOKEN@github.com/$TRAVIS_REPO_SLUG 
+git push origin HEAD:$TARGET_BRANCH
