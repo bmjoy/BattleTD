@@ -47,10 +47,10 @@ deploy:
       - alfa
     #all_branches: true
 
-- provider: pages
+- provider: surge
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  local-dir: Build/webgl
+  project: Build/webgl
+  domain: dli-battle-td.surge.sh
   on:
     branch:
       - master    
