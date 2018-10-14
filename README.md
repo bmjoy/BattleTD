@@ -7,4 +7,4 @@ Although, I had made several simple games before, now I think I want to design a
 
 I have added Continuous Integration for releases and builds.
 
-The web version is automatically deployed to dli-battle-td.surge.sh
+The web version is automatically deployed to https://dli-battle-td.surge.sh
